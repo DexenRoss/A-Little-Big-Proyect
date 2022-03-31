@@ -1,41 +1,33 @@
-
-
-
 class Fecha:
-    dia= ""
+    dia=""
     mes=""
     anio=""
-    
 
-    def __init__(self,cadena):
-        d= int(cadena[0:2])
-        if d>0 and d<=31:
-            if cadena[2] == "/" and cadena[5] == "/":
-                m=int(cadena[3:5])
-                if m>0 and m<=12:
-                    a = int(cadena[6:10])
-                    if a>1900 and a<2023:
-
-                        self.dia = d
-                        self.mes = m
-                        self.anio = a
+    #recibe la cadena de la fecha
+    def __init__(self,fecha):
+        #asignamos los valores
+        day=fecha[0:2]
+        month=fecha[3:5]
+        year=fecha[6:10]
+        if len(fecha)>9:
+            if fecha[2]=="/" and fecha[5]=="/":
+                if day >="01" and day<="31":
+                
+                    if month >="01" and month<="12":
                         
+                        if year >="1955" and year<="2022":
+                            self.dia=day
+                            self.mes=month
+                            self.anio=year
+                        else:
+                            print('INGRESA UNA ANIO DENTRO DEL RANGO!!')
                     else:
-                        print("El anio esta fuera de rango")
+                        print('INGRESA UN MES EXISTENTE DENTRO DEL RANGO!!')
                 else:
-                    print("Mes fuera de rango")
-            else: 
-              print("Falto una diagonal")
+                    print('INGRESA UN DIA DENTRO DEL RANGO!! ')
+            else:
+                print('FALTA EL "/"!!')
         else:
-            print("Dia fuera de rango") 
-
-    
-
-#if __name__=='__main__':
-    #date= input("Introduce tu fecha de nacimiento en formato dd/mm/aaaa: ")
-    #f= Fecha(date)
-        
-    #print("Fin")
-
+            print("LA FECHA NO ESTA EN EL FORMATO INDICADO dd/mm/aaaa")
 
         
